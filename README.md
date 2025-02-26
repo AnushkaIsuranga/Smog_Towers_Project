@@ -3,6 +3,7 @@ This is the smog tower system in a prototype manner. This projects follows the p
 
 
 *ESP 32 Configuration*
+
 Install Visual Studio code - https://code.visualstudio.com
 
 Install PlatformIO extension on Visual studio code - https://platformio.org
@@ -23,6 +24,7 @@ Install C/C++ theme extension on Visual Studio Code(optional) - https://marketpl
 7) upload the code using the icon at bottom of the Visual Studio Code.
 
 *Arduino Uno Configuration*
+
 Install Arduino IDE - https://www.arduino.cc/en/software
 
 1) Copy the libraries in Smog_Towers_Project/Arduino code/libraries to Arduino IDE libraries folder.
