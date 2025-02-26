@@ -1,0 +1,1 @@
+This is a project is about a smog tower. Smog Tower means a Tower which absorbs fraction of polluted air and realease it back to the environment after bunch of filtering methods. This is the smog tower system in a prototype manner.
