@@ -1,41 +1,49 @@
-This is a project is about a smog tower. Smog Tower means a Tower which absorbs fraction of polluted air and realease it back to the environment after bunch of filtering methods.
-This is the smog tower system in a prototype manner. This projects follows the pathway of bejing smog tower which used to filter poluted air in bejing.
+# Smog Tower System - Prototype
 
+## Overview
+A **Smog Tower** is an advanced air purification system designed to absorb polluted air and release it back into the environment after undergoing multiple filtration processes. This prototype follows the model of the Beijing Smog Tower, which effectively filtered polluted air in Beijing.
 
-*ESP 32 Configuration*
+## ESP32 Configuration
+To configure and upload code to the ESP32, follow these steps:
 
-Install Visual Studio code - https://code.visualstudio.com
+### Prerequisites
+Ensure you have the following software installed:
+- [Visual Studio Code](https://code.visualstudio.com)
+- [PlatformIO Extension](https://platformio.org) for Visual Studio Code
+- [C/C++ Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+- *(Optional)* [C/C++ Theme Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes)
 
-Install PlatformIO extension on Visual studio code - https://platformio.org
+### Installation & Setup
+1. Download the project to your device.
+2. Open **Visual Studio Code**.
+3. Navigate to the **PlatformIO** tab.
+4. Click on **Open Project**.
+5. Select the following file:
+   - `Smog_Towers_Project/esp32/smogerror`
+6. Connect your **ESP32** to the computer via USB.
+7. Upload the code by clicking the upload icon at the bottom of Visual Studio Code.
 
-Install C/C++ extension on Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+## Arduino Uno Configuration
+To configure and upload code to the Arduino Uno, follow these steps:
 
-Install C/C++ extension pack on Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
+### Prerequisites
+Ensure you have the [Arduino IDE](https://www.arduino.cc/en/software) installed on your system.
 
-Install C/C++ theme extension on Visual Studio Code(optional) - https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes
+### Installation & Setup
+1. Copy all libraries from:
+   - `Smog_Towers_Project/Arduino code/libraries`
+   to the **Arduino IDE libraries folder**.
+2. Open the Arduino project file:
+   - `Smog_Towers_Project/Arduino code/smog/smog.ino`
+3. Connect your **Arduino Uno** to the computer via USB.
+4. Upload the code to the board.
 
+## Circuit Configuration
+1. Open the **circuit diagram image** included in the project files.
+2. Carefully set up your circuit according to the diagram.
 
-1) Download the project to your device.
-2) open Visual Studio Code.
-3) Goto PlatformIO tab.
-4) Choose the open file option.
-5) Choose Smog_Towers_Project/esp32/smogerror file
-6) plug your esp32.
-7) upload the code using the icon at bottom of the Visual Studio Code.
+## Conclusion
+Once all configurations are complete, your **Smog Tower Prototype** will be operational. Ensure proper connections and software installations for optimal performance.
 
-*Arduino Uno Configuration*
-
-Install Arduino IDE - https://www.arduino.cc/en/software
-
-1) Copy the libraries in Smog_Towers_Project/Arduino code/libraries to Arduino IDE libraries folder.
-2) Open Smog_Towers_Project\Arduino code\smog\smog.ino file.
-3) Plug your Arduino Uno board.
-4) Upload the code.
-
-*Circuit Configuration*
-
-1) Open the Circuit Diagram Image of the project.
-2) Set up your Circuit Properly.
-
-
-*ENJOY!*
+### Enjoy building and experimenting with the Smog Tower System!
