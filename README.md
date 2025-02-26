@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# Smog Tower System - Prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+A **Smog Tower** is an advanced air purification system designed to absorb polluted air and release it back into the environment after undergoing multiple filtration processes. This prototype follows the model of the Beijing Smog Tower, which effectively filtered polluted air in Beijing.
 
-Currently, two official plugins are available:
+## ESP32 Configuration
+To configure and upload code to the ESP32, follow these steps:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+Ensure you have the following software installed:
+- [Visual Studio Code](https://code.visualstudio.com)
+- [PlatformIO Extension](https://platformio.org) for Visual Studio Code
+- [C/C++ Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+- *(Optional)* [C/C++ Theme Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes)
 
-## Expanding the ESLint configuration
+### Installation & Setup
+1. Download the project to your device.
+2. Open **Visual Studio Code**.
+3. Navigate to the **PlatformIO** tab.
+4. Click on **Open Project**.
+5. Select the following file:
+   - `Smog_Towers_Project/esp32/smogerror`
+6. Connect your **ESP32** to the computer via USB.
+7. Upload the code by clicking the upload icon at the bottom of Visual Studio Code.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Arduino Uno Configuration
+To configure and upload code to the Arduino Uno, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites
+Ensure you have the [Arduino IDE](https://www.arduino.cc/en/software) installed on your system.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Installation & Setup
+1. Copy all libraries from:
+   - `Smog_Towers_Project/Arduino code/libraries`
+   to the **Arduino IDE libraries folder**.
+2. Open the Arduino project file:
+   - `Smog_Towers_Project/Arduino code/smog/smog.ino`
+3. Connect your **Arduino Uno** to the computer via USB.
+4. Upload the code to the board.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Circuit Configuration
+1. Open the **circuit diagram image** included in the project files.
+2. Carefully set up your circuit according to the diagram.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Conclusion
+Once all configurations are complete, your **Smog Tower Prototype** will be operational. Ensure proper connections and software installations for optimal performance.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Enjoy building and experimenting with the Smog Tower System!
