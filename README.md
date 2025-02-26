@@ -4,10 +4,15 @@ This is the smog tower system in a prototype manner. This projects follows the p
 
 *ESP 32 Configuration*
 Install Visual Studio code - https://code.visualstudio.com
+
 Install PlatformIO extension on Visual studio code - https://platformio.org
+
 Install C/C++ extension on Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+
 Install C/C++ extension pack on Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
+
 Install C/C++ theme extension on Visual Studio Code(optional) - https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes
+
 
 1) Download the project to your device.
 2) open Visual Studio Code.
