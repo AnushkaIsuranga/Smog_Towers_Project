@@ -11,8 +11,8 @@
 #define SLAVE_ADDRESS 0x08
 
 // Wi-Fi Credentials
-const char* WIFI_SSID = "hi";
-const char* WIFI_PASSWORD = "11111111";
+const char *WIFI_SSID = "Via_LAN";
+const char *WIFI_PASSWORD = "hello@kandy12";
 
 // Firebase Configuration
 #define FIREBASE_HOST "https://smog-tower-default-rtdb.asia-southeast1.firebasedatabase.app/"
@@ -28,11 +28,12 @@ String gases[] = {"Ammonia", "Benzene", "CO", "CNG", "LPG", "Hydrogen", "Smoke"}
 float sensorValues[7];
 
 // DHT22 Setup
-#define DHTPIN 4   // Change this to the pin your DHT22 sensor is connected to
+#define DHTPIN 4 // Change this to the pin your DHT22 sensor is connected to
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
-void setup() {
+void setup()
+{
     // Start Serial and I2C
     Serial.begin(115200);
     Wire.begin();
@@ -40,7 +41,8 @@ void setup() {
     // Connect to Wi-Fi
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
     Serial.print("Connecting to Wi-Fi");
-    while (WiFi.status() != WL_CONNECTED) {
+    while (WiFi.status() != WL_CONNECTED)
+    {
         Serial.print(".");
         delay(1000);
     }
@@ -53,9 +55,12 @@ void setup() {
     Firebase.begin(&config, &auth);
     Firebase.reconnectWiFi(true);
 
-    if (Firebase.ready()) {
+    if (Firebase.ready())
+    {
         Serial.println("Firebase connected successfully.");
-    } else {
+    }
+    else
+    {
         Serial.println("Failed to connect to Firebase. Check credentials.");
     }
 
@@ -63,20 +68,24 @@ void setup() {
     dht.begin();
 }
 
-void loop() {
+void loop()
+{
     // Request data from the Arduino Uno slave
     Wire.requestFrom(SLAVE_ADDRESS, sizeof(float) * 7);
 
     // Read gas sensor values
-    for (int i = 0; i < 7; i++) {
-        if (Wire.available()) {
-            Wire.readBytes((char*)&sensorValues[i], sizeof(sensorValues[i]));
+    for (int i = 0; i < 7; i++)
+    {
+        if (Wire.available())
+        {
+            Wire.readBytes((char *)&sensorValues[i], sizeof(sensorValues[i]));
         }
     }
 
     // Print gas sensor readings
     Serial.println("Gas Sensor Readings:");
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 7; i++)
+    {
         Serial.print(gases[i]);
         Serial.print(": ");
         Serial.print(sensorValues[i], 2);
@@ -85,13 +94,17 @@ void loop() {
 
     // Upload gas data to Firebase
     FirebaseJson json;
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 7; i++)
+    {
         json.set(gases[i].c_str(), sensorValues[i]);
     }
 
-    if (Firebase.RTDB.setJSON(&fbdo, "/gas_readings", &json)) {
+    if (Firebase.RTDB.setJSON(&fbdo, "/gas_readings", &json))
+    {
         Serial.println("Gas data uploaded successfully!");
-    } else {
+    }
+    else
+    {
         Serial.printf("Firebase gas data upload failed: %s\n", fbdo.errorReason().c_str());
     }
 
@@ -99,25 +112,34 @@ void loop() {
     float temperature = dht.readTemperature();
     float humidity = dht.readHumidity();
 
-    if (!isnan(temperature) && !isnan(humidity)) {
+    if (!isnan(temperature) && !isnan(humidity))
+    {
         Serial.printf("Temperature: %.2f°C, Humidity: %.2f%%\n", temperature, humidity);
 
         // Upload Temperature separately
-        if (Firebase.RTDB.setFloat(&fbdo, "/sensorData/temperature", temperature)) {
+        if (Firebase.RTDB.setFloat(&fbdo, "/sensorData/temperature", temperature))
+        {
             Serial.println("Temperature uploaded successfully!");
-        } else {
+        }
+        else
+        {
             Serial.printf("Firebase temperature upload failed: %s\n", fbdo.errorReason().c_str());
         }
 
         // Upload Humidity separately
-        if (Firebase.RTDB.setFloat(&fbdo, "/sensorData/humidity", humidity)) {
+        if (Firebase.RTDB.setFloat(&fbdo, "/sensorData/humidity", humidity))
+        {
             Serial.println("Humidity uploaded successfully!");
-        } else {
+        }
+        else
+        {
             Serial.printf("Firebase humidity upload failed: %s\n", fbdo.errorReason().c_str());
         }
-    } else {
+    }
+    else
+    {
         Serial.println("Failed to read from DHT sensor!");
     }
 
-    delay(5000);  // Wait before the next reading
+    delay(5000); // Wait before the next reading
 }
