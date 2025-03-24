@@ -2,11 +2,11 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import Home from './components/Home'
-import SensorDashboard from './components/home/SensorDashboard'
+import { Analytics } from "@vercel/analytics/react"
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Home/>
-    {/* <SensorDashboard /> */}
+    <Analytics/>
   </StrictMode>,
 )

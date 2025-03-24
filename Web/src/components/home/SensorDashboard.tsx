@@ -6,18 +6,46 @@ import DHT22 from "../gas_sensors/DHT22";
 const SensorDashboard: React.FC = () => {
   const [sensorData, setSensorData] = useState<{ [key: string]: number }>({});
   const [loading, setLoading] = useState(true);
+  const [dataLog, setDataLog] = useState<Array<{ timestamp: string; data: { [key: string]: number } }>>([]);
 
   useEffect(() => {
     const gasRef = ref(database, "gas_readings");
-    
+
     onValue(gasRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         setSensorData(data);
+
+        // Log the data with a timestamp
+        const timestamp = new Date().toISOString();
+        setDataLog((prevLog) => [...prevLog, { timestamp, data }]);
       }
       setLoading(false);
     });
   }, []);
+
+  const exportToCSV = () => {
+    // Create CSV headers
+    const headers = ["Timestamp", ...Object.keys(sensorData)].join(",");
+
+    // Create CSV rows
+    const rows = dataLog.map((entry) => {
+      const values = Object.values(entry.data).map((value) => value.toFixed(5));
+      return [entry.timestamp, ...values].join(",");
+    });
+
+    // Combine headers and rows
+    const csvContent = [headers, ...rows].join("\n");
+
+    // Create a Blob and trigger download
+    const blob = new Blob([csvContent], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "gas_data.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   if (loading) {
     return <div className="text-center text-lg">Loading sensor data...</div>;
@@ -40,6 +68,12 @@ const SensorDashboard: React.FC = () => {
           </div>
         ))}
       </div>
+      <button
+        onClick={exportToCSV}
+        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded justify-center hover:bg-blue-600"
+      >
+        Export Data to CSV
+      </button>
     </div>
   );
 };
