@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Start Flask AQI server",
+			"command": "cd ../../AQ/website && .\\env\\Scripts\\activate && set FLASK_APP=app.py && flask run --host=127.0.0.1 --port=5000",
+			"args": [],
+			"isBackground": true,
+			"group": "build",
+			"problemMatcher": []
+		}
+	]
+}

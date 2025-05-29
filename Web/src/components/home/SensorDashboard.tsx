@@ -7,6 +7,9 @@ const SensorDashboard: React.FC = () => {
   const [sensorData, setSensorData] = useState<{ [key: string]: number }>({});
   const [loading, setLoading] = useState(true);
   const [dataLog, setDataLog] = useState<Array<{ timestamp: string; data: { [key: string]: number } }>>([]);
+  const [forecast, setForecast] = useState<Array<{ day: string; aqi: number; status: string }> | null>(null);
+  const [forecastLoading, setForecastLoading] = useState(false);
+  const [forecastError, setForecastError] = useState<string | null>(null);
 
   useEffect(() => {
     const gasRef = ref(database, "gas_readings");
@@ -47,6 +50,21 @@ const SensorDashboard: React.FC = () => {
     URL.revokeObjectURL(url);
   };
 
+  const fetchForecast = async () => {
+    setForecastLoading(true);
+    setForecastError(null);
+    try {
+      const response = await fetch("http://localhost:5000/forecast");
+      if (!response.ok) throw new Error("Failed to fetch forecast");
+      const result = await response.json();
+      setForecast(result.forecast || []);
+    } catch (err: any) {
+      setForecastError(err.message || "Unknown error");
+    } finally {
+      setForecastLoading(false);
+    }
+  };
+
   if (loading) {
     return <div className="text-center text-lg">Loading sensor data...</div>;
   }
@@ -74,6 +92,33 @@ const SensorDashboard: React.FC = () => {
       >
         Export Data to CSV
       </button>
+
+      {/* Forecast Section */}
+      <div className="mt-8 p-6 bg-gray-50 rounded-lg shadow border border-gray-200">
+        <h2 className="text-xl font-bold mb-2">Forecast (ML Model)</h2>
+        <p className="mb-4 text-gray-700">Predict future air quality or sensor values using the latest data.</p>
+        <button
+          onClick={fetchForecast}
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          disabled={forecastLoading}
+        >
+          {forecastLoading ? "Loading..." : "Get Forecast"}
+        </button>
+        {forecastError && (
+          <div className="mt-2 text-red-600">Error: {forecastError}</div>
+        )}
+        {forecast && !forecastError && (
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {forecast.map((entry) => (
+              <div key={entry.day} className="bg-white p-4 rounded shadow border">
+                <div className="font-semibold">{entry.day}</div>
+                <div className="text-lg">AQI: {entry.aqi.toFixed(2)}</div>
+                <div className="text-sm text-gray-600">{entry.status}</div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
