@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AQI Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Air Quality Forecast</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <input type="checkbox" id="use_firebase" name="use_firebase">
+                <label for="use_firebase">Use real-time sensor data from Firebase</label>
+            </div>
+            <button type="submit" class="btn">Get AQI Forecast</button>
+        </form>
+
+        {% if multi_predictions %}
+        <div class="forecast-cards">
+            {% for day, value, status in multi_predictions %}
+            <div class="forecast-card">
+                <div class="forecast-day">{{ day }}</div>
+                <div class="forecast-icon">
+                    {% if status == 'Good' %}
+                        <span style="color: #4caf50;">&#9728;</span>
+                    {% elif status == 'Moderate' %}
+                        <span style="color: #ffeb3b;">&#9729;</span>
+                    {% elif status == 'Unhealthy for Sensitive Groups' %}
+                        <span style="color: #ff9800;">&#9888;</span>
+                    {% elif status == 'Unhealthy' %}
+                        <span style="color: #f44336;">&#9940;</span>
+                    {% elif status == 'Very Unhealthy' %}
+                        <span style="color: #9c27b0;">&#9760;</span>
+                    {% else %}
+                        <span style="color: #212121;">&#9760;</span>
+                    {% endif %}
+                </div>
+                <div class="forecast-value">AQI: <b>{{ value|round(2) }}</b></div>
+                <div class="forecast-status">{{ status }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if prediction_text %}
+        <div class="result">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        {% endif %}
+    </div>
+
+    <style>
+    body { background: #f5f7fa; font-family: 'Segoe UI', Arial, sans-serif; }
+    .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 32px; }
+    h1 { text-align: center; color: #333; }
+    .forecast-cards { display: flex; justify-content: space-between; gap: 18px; margin-top: 32px; }
+    .forecast-card { flex: 1; background: #f0f4f8; border-radius: 10px; box-shadow: 0 1px 6px #0001; padding: 18px 10px; text-align: center; transition: box-shadow 0.2s; }
+    .forecast-card:hover { box-shadow: 0 4px 16px #0002; }
+    .forecast-day { font-size: 1.2em; font-weight: bold; margin-bottom: 8px; }
+    .forecast-icon { font-size: 2.5em; margin-bottom: 8px; }
+    .forecast-value { font-size: 1.1em; margin-bottom: 4px; }
+    .forecast-status { font-size: 1em; color: #555; }
+    .form-group { margin-bottom: 18px; }
+    .btn { background: #1976d2; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 1em; cursor: pointer; }
+    .btn:hover { background: #125ea2; }
+    </style>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
