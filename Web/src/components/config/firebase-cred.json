@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "smog-tower",
+  "private_key_id": "04dd88fb496da25c0279cd215eca9a8680ab8807",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCJ0m4aYrhyvv2r\nO+foYED17odW4peXyip6v9ekFJY9LHHwAvw1whukStxwa3PAqY+hGpq8ceBisuTn\nG0tlIwjud5QrfkSmrEkdvDx3ZV9G/Pqi9A5lbePAcWeVqVZw4ZPgZMMtb38o8W1F\nyodIYGRjX8bU7hY/9MExfiY3gwRq9JmCs16QZZQNzHOgOUZ1eKqRi4eHQCxs5Hk0\n25W5WtcxaGu+XeSJuARV/ll1R7K+2IHILX7QuXY+/zxLqvQYZfrQm4Qd3jRtzizo\nJ1xv8xgKV+bnqaRXaJwv1E3lCPjRmWNRRGMNxLCfq1VukrGjFBAe8pSoFe2D5itH\nwnCE9MerAgMBAAECggEAIVpfcts5L+uwj+Prd3zzu5CCCDDF5uHx7crHcNnaketT\nl3Xhe1ECR3wmZL5cQN/H9oDtuXUFjF0msBcW497apnshzHS+QGepOhz3tR0/NXq7\nXPwbD8jMOSI4oytb0+2DT+aSpUg6SbpDa4RbwNQy9ymSgK0tjUS6DDQvI3f9dbRp\nD7pVxMNyswdr1uR3OxWbfFIQ9mqwjMl08K4+oko2TjNVk1aFqOuMaEyPGow/cXmC\nU6hSBuztBUQZ0+PzNL5RuKxO9KwEOzEKmeuRu2tRlgd8/FabruKjxQDMxeK7qiHw\nTsmKdET8Qd/QIJRbZJ7Oy9uT9e1Xz1r+3ikYNV9RoQKBgQDA5wmlNknDHRxKifS5\nC40MN/A01amA7dDqm8fblaprMVt1wgCvtd7Peh7g+l88V8CJEzeD2R9gE794yxQ+\n8uMHo8k3XufVE8UHy3OQkr4CxRObfnW9xqzAAga347euRJs8QKRLDQKPq0KHePnm\njWEUyrmRn56YuyX9D+mwpUkZVwKBgQC25yYuW7QBIVX7Relqv+hIxTYhCRRk//ru\nDhT3A/le4wjVFEBk7/qxut1ZgNvGkIdp71lynkLLsK/MaZMrzkJ5a/9vyfR8SiHY\nKt8gAi+ktk16i9DsGAZCtrxylIiZLUgayS/Ll+n08JlTNw7RhoXswkSB4P70P5HJ\nemnq9plLzQKBgQCPZO9Blbp9RM18B1MYnyKJW6e+zrlC8wWi8Iw/ieD17+nJ/p3d\n//cSCficSuGyjJS+EL/qzeLJ28Qwed2h8ZGcYz83XuA8/4Yuhilw5fRDQNaTdwz1\nNpPB43+1AJzQ+YTf5Dl85L3rqGY7KE2z+ZKaDxykyJ/vbucNV9/ihOty3wKBgALU\ndLzG4nQaBfCLVl82dOubUYkVUOF3LHS+dwiTYSpcrOhPFef55pEVaRNXcQ8TcWTs\nNSAW3sW0CCRLheFpoZGrYBpkr4m0w+1KTIV8QyxzPaOlwifE/2PM3AGR1sM39iOj\n9T9bLF2D03t8IJiRUkUlhFXWG1vAGAtb/4OJKToJAoGAATVUZFJdJ4oW2uOZmwVj\n2IJz1y1IuneqJciHNCy5UT0T277tcRzcr/dRPJa6IOzUpKl1BbJmORneAx9D06WJ\nD9tTaEwfose5X7oUVvWzFRNG6SfGJpikRGOSAevpxHOsEoCX8SJzi+U6bHnx+fDZ\nyh9sEJAFLwe8eNhm0+4GxMM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-avh9r@smog-tower.iam.gserviceaccount.com",
+  "client_id": "103983233011764760340",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-avh9r%40smog-tower.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
