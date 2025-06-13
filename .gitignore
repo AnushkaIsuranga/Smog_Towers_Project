@@ -1,0 +1,67 @@
+# Python/Flask/ML/Notebook ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.ipynb_checkpoints/
+.env/
+.env
+*.env
+*.sqlite3
+*.db
+*.log
+*.DS_Store
+*.egg-info/
+*.bak
+*.swp
+*.swo
+*.tmp
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.csv
+*.xlsx
+*.xls
+*.sav
+*.npy
+*.npz
+*.model
+*.ckpt
+*.onnx
+*.tflite
+*.pb
+*.pkl
+*.cache/
+# VSCode
+.vscode/
+# Node/Frontend
+node_modules/
+dist/
+build/
+*.lock
+# OS
+Thumbs.db
+.DS_Store
+# Firebase/Secrets
+*.json
+firebase-debug.log
+# Ignore credentials and sensitive config
+Web/src/components/config/firebase-cred.json
+# Ignore virtual environments
+AQ/model/env/
+AQ/website/env/
+# Ignore output and generated files
+AQ/model/predictor.pickle
+AQ/website/model/predictor.pickle
+AQ/website/model/*.joblib
+AQ/website/model/*.pickle
+# Ignore Jupyter notebook output
+*.nbconvert.ipynb
+# Ignore test and debug
+*.coverage
+coverage.xml
+htmlcov/
+# Ignore large datasets
+AQ/model/dataset/
+ML/*.csv
